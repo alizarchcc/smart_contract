@@ -10,7 +10,7 @@ contract Token{
     mapping (address => uint256) public balanceOf;
     mapping (address => mapping (address => uint256)) public allowance;
 
-    event Tranfer(address indexed  from, address indexed to, uint256 value);
+    event Transfer(address indexed  from, address indexed to, uint256 value);
     event Approval(address indexed  owner, address indexed spender, uint256 value);
 
     constructor(
@@ -33,7 +33,7 @@ contract Token{
         balanceOf[msg.sender] -= value;
         balanceOf[to] += value;
 
-        emit Tranfer(msg.sender, to, value);
+        emit Transfer(msg.sender, to, value);
         return true;
     }
 }
